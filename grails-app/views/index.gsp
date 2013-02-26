@@ -132,8 +132,9 @@ p {
 	<a href="#myModal" role="button" class="btn" data-toggle="modal">Report a Problem</a>
 
 	<!-- Modal -->
-	<form id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
+		<g:form  controller="ReportGitHubIssue" method="post">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
@@ -147,10 +148,11 @@ p {
 			</div>
 			<div class="modal-footer">
 				<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-				<button class="btn btn-primary">Create</button>
+				<g:actionSubmit class="btn btn-primary" value="Create" action="create"/>
 			</div>
 		</fieldset>
-	</form>
+	</g:form>
+	</div>
 
 
 </body>
