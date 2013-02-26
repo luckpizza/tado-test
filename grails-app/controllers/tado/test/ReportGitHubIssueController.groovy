@@ -10,6 +10,7 @@ class ReportGitHubIssueController {
 	static BASIC_AUTHENTICATION =  "bHVja3BpenphLXRlc3Q6dGVzdDEyMzQ="
 	static BASE_URI = "https://api.github.com"
 	static REPO_PATH = '/repos/luckpizza/tado-test/issues'
+	
 	def create() {
 
 		def http = new HTTPBuilder(BASE_URI)
@@ -19,11 +20,12 @@ class ReportGitHubIssueController {
 			body =  [title:params."title", body:params."body"]
 			response.success = { resp, reader ->
 				println "Success! ${resp.status}"
-				println reader 
+				redirect(uri: "/")
 			}
 			response.failure = { resp, reader ->
 				println "Request failed with status ${resp.status}"
 				println reader
+				
 			}
 		})
 	}
