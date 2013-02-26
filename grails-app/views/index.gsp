@@ -142,9 +142,10 @@ p {
 		</div>
 		<fieldset>
 			<div class="modal-body">
-				<label>Title</label> <input type="text"
-					placeholder="Type a Title..."> <label>Body</label> <input
-					type="text" placeholder="Type what happened...">
+				<label>Title</label> 
+				<g:textField name="title" type="text" placeholder="Type a Title..."/>
+			   <label>Body</label> 
+			   <g:textField name="body" type="text" placeholder="Type what happened..."/>
 			</div>
 			<div class="modal-footer">
 				<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
