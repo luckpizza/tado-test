@@ -16,7 +16,7 @@ class ReportGitHubIssueController {
 		http.setHeaders( [Authorization: "Basic " + BASIC_AUTHENTICATION])
 		http.uri.path = REPO_PATH
 		http.request(Method.POST, "application/json", {
-			body =  [title:"title", body:"abody"]
+			body =  [title:params."title", body:params."body"]
 			response.success = { resp, reader ->
 				println "Success! ${resp.status}"
 				println reader 
