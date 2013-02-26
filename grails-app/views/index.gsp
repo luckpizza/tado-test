@@ -132,26 +132,25 @@ p {
 	<a href="#myModal" role="button" class="btn" data-toggle="modal">Report a Problem</a>
 
 	<!-- Modal -->
-	<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
+	<form id="myModal" class="modal hide fade" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
 			<h3 id="myModalLabel">Create an Issue</h3>
 		</div>
-		<div class="modal-body">
-			<label>Title</label>
-			<input type="text" placeholder="Type a Title...">
-
-			<label>Body</label>
-			<input type="text" placeholder="Type what happened...">
-
-		</div>
-		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-			<button class="btn btn-primary">Create</button>
-		</div>
-	</div>
+		<fieldset>
+			<div class="modal-body">
+				<label>Title</label> <input type="text"
+					placeholder="Type a Title..."> <label>Body</label> <input
+					type="text" placeholder="Type what happened...">
+			</div>
+			<div class="modal-footer">
+				<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+				<button class="btn btn-primary">Create</button>
+			</div>
+		</fieldset>
+	</form>
 
 
 </body>
