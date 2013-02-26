@@ -7,73 +7,24 @@ import static groovyx.net.http.Method.*
 
 class ReportGitHubIssueController {
 	
+	static BASIC_AUTHENTICATION =  "bHVja3BpenphLXRlc3Q6dGVzdDEyMzQ="
+	static BASE_URI = "https://api.github.com"
+	static REPO_PATH = '/repos/luckpizza/tado-test/issues'
 	def create() {
 
-		def http = new HTTPBuilder("https://api.github.com")
-		http.auth.basic "luckpizza-test", "test1234"
-		http.uri.path = '/repos/luckpizza/tado-test/issues'
-		http.request(Method.GET) {
-//			uri.path = '/repos/luckpizza/tado-test/issues'
-//			requestContentType = ContentType.URLENC
-			
+		def http = new HTTPBuilder(BASE_URI)
+		http.setHeaders( [Authorization: "Basic " + BASIC_AUTHENTICATION])
+		http.uri.path = REPO_PATH
+		http.request(Method.POST, "application/json", {
+			body =  [title:"title", body:"abody"]
 			response.success = { resp, reader ->
 				println "Success! ${resp.status}"
 				println reader 
 			}
-		
-			response.failure = { resp ->
+			response.failure = { resp, reader ->
 				println "Request failed with status ${resp.status}"
-				
+				println reader
 			}
-		}
-		println "whatever "
-		println params
+		})
 	}
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	//		withRest(uri: "https://api.github.com") {
-	//			auth.basic "luckpizza-test", "test1234"
-	//			post(path : '/repos/luckpizza/tado-test/issues',
-	//				body: "", requestContentType : URLENC )
-	//			println response.status
-	
-		
-//	def create() {
-//
-//		withRest(uri: "https://api.github.com") {
-//			auth.basic "luckpizza-test", "test1234"
-//			post(path : '/repos/luckpizza/tado-test/issues',
-//					body: "", requestContentType : URLENC )
-//			println response.status
-//		}
-//		println "whatever "
-//		println params
-//	}
 }
